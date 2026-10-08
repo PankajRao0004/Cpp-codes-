@@ -1,0 +1,36 @@
+#include<iostream>
+//including queue library 
+#include<queue>
+using namespace std ;
+int main(){
+    //creating max heap means at the last(top ) ,there will be the higher element 
+priority_queue<int>maxhp; //name - maxhp
+//creating min heap
+priority_queue<int,vector<int>,greater<int>>minhp ;
+//Adding element at the end 
+maxhp.push(1);
+maxhp.push(2);
+maxhp.push(7);
+maxhp.push(3);
+int n = maxhp.size(); // if we directly compare the maxhp.size in the loop,then some element will not be printed because vaolu changes of maxi.size()
+//so storing the value in n
+for(int i=0;i<n;i++){
+    cout<<maxhp.top()<<" ";
+    maxhp.pop();//removing the element so that we can print all the elements 
+}cout<<endl;
+//adding elements in the min heap
+minhp.push(3);
+minhp.push(1);
+minhp.push(6);
+minhp.push(2);
+minhp.push(9);
+//printing min heap
+int m  = minhp.size();
+for(int i =0;i<m;i++){
+    cout<<minhp.top()<<" ";
+    minhp.pop(); //removing the element thst is   printed
+
+
+}cout<<endl;
+    return 0 ;
+}

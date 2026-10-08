@@ -1,0 +1,47 @@
+#include<iostream> 
+#include<math.h>
+
+using namespace std ;
+int binarysearch(int arr[],int n,int key){
+  int si = 0; // starting index initialise 
+  int ei = n-1; // ending index intitalise 
+  //int mid = (si+ei)/2;// finding the mid element 
+// but there is one mistake that sum of si + ei may be so large  that it is not in the range of int so 
+// we will use different approach for the same implementation i.e.
+int mid = si+ (ei-si)/2;
+
+
+
+  while(si<=ei){  // condition tha starting index can not be greater than ending index 
+  if(arr[mid]==key){
+       // mid element of array equal to key 
+   
+    return mid; // returning the mid element 
+  }
+   if (key>arr[mid]){
+    si=mid+1;  // choosing the right  part 
+  }
+  if (key<arr[mid]){
+    ei = mid -1;  // choosing the left part 
+  }
+  
+ // mid= (si+ei)/2; // updating the mid part because si or ei is updated
+   // same here also 
+   mid = si+ (ei-si)/2;
+   
+   }
+  return -1 ; // if key not present 
+}
+
+
+int main()
+{
+   int even[6] = { 12,14,15,19,19,20}  ; 
+   int odd[5] = {1,2,3,4,5} ;    // we are searching in increasing arrays 
+
+ cout<<"printing the first occurence of key: "<<endl; 
+   int index= binarysearch(even,6,19);
+   cout<<index; // printing the returned element 
+   return 0 ;
+}
+ 
